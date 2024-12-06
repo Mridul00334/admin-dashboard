@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-import Tree from "./components/tree";
+
+
 import './App.css';
 import { ThemeSettings } from './theme/Theme';
 import SideDrawer from './shared/SideDrawer';

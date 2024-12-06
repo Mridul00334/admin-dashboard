@@ -1,46 +1,30 @@
 
 import React, { useEffect, useState } from 'react';
 import {
-  TableContainer,
-  Table,
-  TableRow,
-  TableCell,
-  TableBody,
-  Avatar,
-  Typography,
-  TableHead,
-  Chip,
-  Box,
-  AvatarGroup, Grid
+  Box
 } from '@mui/material';
 import { TreeTable } from 'primereact/treetable';
 import { Column } from 'primereact/column';
 import { Stack } from '@mui/system';
 import epic from '../assets/epic.png';
-import { Checkbox } from 'primereact/checkbox';
+
 import DownloadCard from '../shared/DownloadCard';
-import task from '../assets/subtask.png';
+
 import { Dropdown } from 'primereact/dropdown';
-import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+
 import { IconField } from 'primereact/iconfield';
 import { InputIcon } from 'primereact/inputicon';
 import { InputText } from 'primereact/inputtext';
 import { MultiSelect } from 'primereact/multiselect';
 import { getList } from "../api/index";
 import "./tree.css"
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
-import { KeyboardReturnOutlined, MedicalInformationOutlined } from '@mui/icons-material';
+
+
 import Spinner from '../shared/Spinner/Spinner';
 
 
 
 
-const columnHelper = createColumnHelper();
 
 
 
@@ -252,7 +236,7 @@ const ReactBasicTable = () => {
          Object.keys(node.data).forEach((key) => (key !== "key" || key!=="children") && akey.add(key));
        });
        const selectedKeys = Array.from(akey).slice(0, 4);
-       const newItems = selectedKeys.map((key) => ({ name: key, code: key }));  // Assuming `name` is `key` and `code` is also `key`
+        // Assuming `name` is `key` and `code` is also `key`
     
     setSelectedItems(Array.from(akey));  // Set the initial list of items with `name` and `code`
     setAllKeys(selectedKeys);    // Set the initial selected keys
@@ -311,39 +295,11 @@ const ReactBasicTable = () => {
   };
 
   // Custom body template for the 'Name' column to include an icon
-  const nameBodyTemplate = (nodeData) => {
-    return (
-      <>
-        {nodeData.data.type === 'Folder' ? (
-          <img src={epic} style={{ marginRight: '8px', color: '#0d6efd', height: '10px' }} />
-        ) : (
-          <img src={task} style={{ marginRight: '8px', color: '#6c757d', height: '10px' }} />
-        )}
 
-      </>
-    );
 
-  };
+  
 
-  const summaryBodyTemplate = (nodeData) => {
-    return (
-
-      <>{nodeData.data.summary}
-        <ModeEditOutlineOutlinedIcon style={{ marginLeft: '8px', color: '#0d6efd', height: '20px' }}
-          onClick={() => redirect()} /></>
-
-    );
-  };
-
-  const onSummaryEditorValueChange = (e, node) => {
-    setEditable(true);
-    const updatedNodes = [...nodes]; // Clone the existing nodes
-    const updatedNode = updatedNodes.find(n => n.key === node.key);
-    if (updatedNode) {
-      updatedNode.data.summary = e.target.value; // Update the summary value
-      setNodes(updatedNodes); // Set the updated state
-    }
-  };
+ 
 
   const getHeader = () => {
     return (

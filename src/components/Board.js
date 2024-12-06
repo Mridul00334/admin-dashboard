@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+
 import  ColumnView from './Column';
 
 
-import { Box, Typography, Drawer,  Collapse,List, ListItem, ListItemIcon, ListItemText, IconButton } from '@mui/material';
+import { Box, Typography, Drawer,  Collapse,List, ListItem, ListItemIcon } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import PeopleIcon from '@mui/icons-material/People';
