@@ -19,7 +19,6 @@ import { Stack } from '@mui/system';
 import epic from '../assets/epic.png';
 import { Checkbox } from 'primereact/checkbox';
 import DownloadCard from '../shared/DownloadCard';
-import { basicsTableData } from '../data/index';
 import task from '../assets/subtask.png';
 import { Dropdown } from 'primereact/dropdown';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
@@ -38,7 +37,7 @@ import {
 import { KeyboardReturnOutlined, MedicalInformationOutlined } from '@mui/icons-material';
 import Spinner from '../shared/Spinner/Spinner';
 
-const basics = basicsTableData;
+
 
 
 const columnHelper = createColumnHelper();
@@ -370,8 +369,7 @@ const ReactBasicTable = () => {
   let header = getHeader();
 
 
-  const [data, _setData] = React.useState(() => [...basics]);
-
+  
   const handleCheck = (val) => {
     // Remove codes that are not selected anymore and add new selected codes
   // Directly assign selected codes to `updatedAllKeys`
@@ -389,30 +387,7 @@ const ReactBasicTable = () => {
   
 
   const handleDownload = () => {
-    const headers = ["Users", "Project Name", "Team", "Status", "Budget"];
-    const rows = data.map((item) => [
-
-      item.name,
-      item.pname,
-      item.teams.map(team => team.text).join(", "),
-      item.status,
-      item.budget,
-    ]);
-
-    const csvContent = [
-      headers.join(","),
-      ...rows.map((e) => e.join(","))
-    ].join("\n");
-
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", "table-data.csv");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    
   };
 
   return (
