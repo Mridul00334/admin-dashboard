@@ -1,0 +1,51 @@
+/* Flex container */
+.flex {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: flex-start; /* Align children to the left */
+  }
+  
+  /* Icon field wrapper */
+  .IconField {
+    display: flex;
+    align-items: center; /* Vertically center the icon and input */
+    position: relative;
+  }
+  
+  /* Styling for the input field */
+  .search-input {
+    padding-left: 35px; /* Space for the icon */
+    padding: 10px;
+    font-size: 14px;
+    margin: 10px 40px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%; /* Ensure the input takes the full available width */
+    height: 30px;
+  }
+  
+  /* Styling for the icon */
+  .pi.pi-search {
+    position: absolute;
+    left: 10px; /* Position icon inside the input */
+    font-size: 16px; /* Icon size */
+    color: #888; /* Icon color */
+    pointer-events: none; /* Ensure the icon doesn't interfere with clicking inside the input */
+  }
+  
+  /* Hover and focus states for the input */
+  .search-input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+  }
+  
+  /* Optional: You can add a transition to smoothen the focus effect */
+  .search-input {
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+
+  .transparent-multiselect  {
+    background: white !important;
+  }
